@@ -1,10 +1,25 @@
-﻿@{ Layout = "_Layout";}
+﻿@model IEnumerable<TDSTecnologia.Site.Core.Entities.Curso>
+@{ Layout = "_Layout";}
+
+@{
+    ViewData["Title"] = "Index";
+}
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
 </head>
 <body>
-    <h1>Projeto TDS Tecnologia</h1>
+    <!--<h1>Projeto TDS Tecnologia</h1>-->
+    <div class="text-center text-secondary">
+        <h1>Próximos Cursos</h1>
+        <p>Veja aqui nossos proximos cursos agendados, se preferir acesso nosso <b>Calendário completo</b>.</p>
+    </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            @await Html.PartialAsync("_CardCursoPartial.cshtml", item)
+        }
+    </div>
 </body>
 </html>
