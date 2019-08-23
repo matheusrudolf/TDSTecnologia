@@ -7,7 +7,7 @@ using System.Text;
 namespace TDSTecnologia.Site.Core.Entities
 {
     [Table("tb01_curso")]
-    class Curso
+    public class Curso
     {
         [Key]
         [Column("id")]
