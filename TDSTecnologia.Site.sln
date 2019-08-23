@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDSTecnologia.Site.Web", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDSTecnologia.Site.Core", "TDSTecnologia.Site.Core\TDSTecnologia.Site.Core.csproj", "{53148B0B-8AE6-445D-B1CB-F0806C164CAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDSTecnologia.Site.Infrastructure", "TDSTecnologia.Site.Infrastructure\TDSTecnologia.Site.Infrastructure.csproj", "{FEA0F6C8-7A6E-4881-9B2B-DA15C704540D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{53148B0B-8AE6-445D-B1CB-F0806C164CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53148B0B-8AE6-445D-B1CB-F0806C164CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53148B0B-8AE6-445D-B1CB-F0806C164CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEA0F6C8-7A6E-4881-9B2B-DA15C704540D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEA0F6C8-7A6E-4881-9B2B-DA15C704540D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEA0F6C8-7A6E-4881-9B2B-DA15C704540D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEA0F6C8-7A6E-4881-9B2B-DA15C704540D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{ACCB584B-B713-4001-BFA9-E1E55278672A} = {3FD853DE-4568-456C-913D-211FCB389B0C}
 		{53148B0B-8AE6-445D-B1CB-F0806C164CAF} = {3FD853DE-4568-456C-913D-211FCB389B0C}
+		{FEA0F6C8-7A6E-4881-9B2B-DA15C704540D} = {3FD853DE-4568-456C-913D-211FCB389B0C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {606748DB-A3AD-4814-8F59-E9CD56738AC8}
