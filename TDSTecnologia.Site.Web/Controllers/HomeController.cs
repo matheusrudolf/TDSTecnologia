@@ -40,6 +40,25 @@ namespace TDSTecnologia.Site.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(curso);
+
+
         }
+
+        public async Task<IActionResult> Detalhes(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var curso = await _context.CursoDao.FirstOrDefaultAsync(m => m.Id == id);
+            if (curso == null)
+            {
+                return NotFound();
+            }
+
+            return View(curso);
+        }
+
     }
 }
