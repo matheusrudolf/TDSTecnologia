@@ -105,6 +105,7 @@ namespace TDSTecnologia.Site.Web.Controllers
             if (ModelState.IsValid)
             {
                 _context.Update(curso);
+                _context.Entry<Curso>(curso).Property(c => c.Banner).IsModified = false;
                 await _context.SaveChangesAsync();
 
 
