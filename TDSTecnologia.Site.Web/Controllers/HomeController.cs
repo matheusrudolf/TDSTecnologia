@@ -22,6 +22,15 @@ namespace TDSTecnologia.Site.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
+            List<Curso> cursos = await _context.CursoDao.ToListAsync();
+
+            cursos.ForEach(c =>
+            {
+                if (c.Banner != null)
+                {
+                    c.BannerBase64 = "data:image/png;base64," + Convert.ToBase64String(c.Banner, 0, c.Banner.Length);
+                }
+            });
             return View(await _context.CursoDao.ToListAsync());
         }
 
