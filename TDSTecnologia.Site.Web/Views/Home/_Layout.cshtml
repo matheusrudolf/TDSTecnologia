@@ -6,6 +6,7 @@
     <link href="~/site/main.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/imagens/favicon.ico" rel="shortcut icon" />
 </head>
 @RenderSection("Scripts", required: false)
 <body>
@@ -13,6 +14,8 @@
         <header>
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 fixed-top">
                 <div class="container">
+                    <img src="~/imagens/logo.png" width="60" height="30" alt="" />
+                    
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                         TDS Tecnologia
                     </a>
