@@ -33,6 +33,6 @@ namespace TDSTecnologia.Site.Core.Entities
         public string BannerBase64 { get; set; }
 
         [Column("turno")]
-        public DomTurno turno { get; set; }
+        public DomTurno Turno { get; set; }
     }
 }
