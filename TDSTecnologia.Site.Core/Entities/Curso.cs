@@ -40,5 +40,8 @@ namespace TDSTecnologia.Site.Core.Entities
 
         [Column("Vagas")]
         public int Vagas { get; set; }
+
+        [Column("nivel")]
+        public DomNivel Nível { get; set; }
     }
 }
