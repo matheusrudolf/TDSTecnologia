@@ -57,7 +57,7 @@
                 <div class="form-group">
                     <label asp-for="Modalidade" class="control-label">Modalidade</label>
                     <select asp-for="Modalidade" class="form-control">
-                        @foreach (DomTurno modalidade in Enum.GetValues(typeof(DomTurno)))
+                        @foreach (DomModalidade modalidade in Enum.GetValues(typeof(DomModalidade)))
                         {
                             <option value="@modalidade.ToString()">@modalidade.Descricao()</option>
                         }
@@ -72,7 +72,7 @@
                 <div class="form-group">
                     <label asp-for="Nivel" class="control-label">Nível</label>
                     <select asp-for="Nivel" class="form-control">
-                        @foreach (DomTurno nivel in Enum.GetValues(typeof(DomTurno)))
+                        @foreach (DomNivel nivel in Enum.GetValues(typeof(DomNivel)))
                         {
                             <option value="@nivel.ToString()">@nivel.Descricao()</option>
                         }
