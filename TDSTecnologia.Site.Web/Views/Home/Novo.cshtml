@@ -70,14 +70,14 @@
                     <span asp-validation-for="Vagas" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Nivel" class="control-label">Nível</label>
-                    <select asp-for="Nivel" class="form-control">
+                    <label asp-for="Nível" class="control-label">Nível</label>
+                    <select asp-for="Nível" class="form-control">
                         @foreach (DomNivel nivel in Enum.GetValues(typeof(DomNivel)))
                         {
                             <option value="@nivel.ToString()">@nivel.Descricao()</option>
                         }
                     </select>
-                    <span asp-validation-for="Nivel" class="text-danger"></span>
+                    <span asp-validation-for="Nível" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Salvar" class="btn btn-primary" />
