@@ -37,5 +37,8 @@ namespace TDSTecnologia.Site.Core.Entities
 
         [Column("modalidade")]
         public DomModalidade Modalidade { get; set; }
+
+        [Column("Vagas")]
+        public int Vagas { get; set; }
     }
 }
