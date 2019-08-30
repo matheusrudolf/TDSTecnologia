@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TDSTecnologia.Site.Core.Entities;
 using TDSTecnologia.Site.Infrastructure.Data;
+using TDSTecnologia.Site.Infrastructure.Repository;
 
 namespace TDSTecnologia.Site.Web.Controllers
 {
@@ -15,14 +16,17 @@ namespace TDSTecnologia.Site.Web.Controllers
     {
         private readonly AppContexto _context;
 
-        public HomeController(AppContexto context)
+        public HomeController(AppContexto context, CursoRepository cursoRepository)
         {
             _context = context;
+            _cursoRepository = cursoRepository;
         }
 
         public async Task<IActionResult> Index()
         {
-            
+            List<Curso> cursos = await _cursoRepository.ListarTodos();
+
+            return View(cursos);
         }
 
         [HttpGet]
@@ -131,6 +135,8 @@ namespace TDSTecnologia.Site.Web.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        private readonly CursoRepository _cursoRepository;
 
     }
 }
