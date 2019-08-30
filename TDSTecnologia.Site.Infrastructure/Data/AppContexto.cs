@@ -21,16 +21,21 @@ namespace TDSTecnologia.Site.Infrastructure.Data
             .Entity<Curso>()
             .Property(c => c.Turno)
             .HasConversion(DominioConverter.ConverterDomTurno());
+    
 
             modelBuilder
             .Entity<Curso>()
             .Property(c => c.Modalidade)
-            .HasConversion(DominioConverter.ConverterDomTurno());
+            .HasConversion(
+            v => v.ToString(),
+            v => (DomModalidade)Enum.Parse(typeof(DomModalidade), v));
 
             modelBuilder
             .Entity<Curso>()
             .Property(c => c.Nível)
-            .HasConversion(DominioConverter.ConverterDomTurno());
+            .HasConversion(
+            v => v.ToString(),
+            v => (DomNivel)Enum.Parse(typeof(DomNivel), v));
         }
     }
 }
