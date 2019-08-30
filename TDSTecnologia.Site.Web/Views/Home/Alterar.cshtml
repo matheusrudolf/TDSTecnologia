@@ -56,6 +56,46 @@
                     <span asp-validation-for="Turno" class="text-danger"></span>
                 </div>
                 <div class="form-group">
+                    <label asp-for="Modalidade" class="control-label">Modalidade</label>
+                    <select asp-for="Modalidade" class="form-control">
+                        @foreach (DomModalidade modalidade in Enum.GetValues(typeof(DomModalidade)))
+                        {
+
+                            if (Model.Modalidade.Equals(modalidade))
+                            {
+                                <option selected="selected" value="@modalidade.ToString()">@modalidade.Descricao()</option>
+                            }
+                            else
+                            {
+                                <option value="@modalidade.ToString()">@modalidade.Descricao()</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="Modalidade" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vagas" class="control-label">Vagas</label>
+                    <input asp-for="Vagas" class="form-control-range" />
+                    <span asp-validation-for="Vagas" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Nível" class="control-label">Nível</label>
+                    <select asp-for="Nível" class="form-control">
+                        @foreach (DomNivel nivel in Enum.GetValues(typeof(DomNivel)))
+                        {
+                            if (Model.Nível.Equals(nivel))
+                            {
+                                <option selected="selected" value="@nivel.ToString()">@nivel.Descricao()</option>
+                            }
+                            else
+                            {
+                                <option value="@nivel.ToString()">@nivel.Descricao()</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="Nível" class="text-danger"></span>
+                </div>
+                <div class="form-group">
                     <input type="submit" value="Salvar" class="btn btn-primary btn-lg" />
                 </div>
             </form>
