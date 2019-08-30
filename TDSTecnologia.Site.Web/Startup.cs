@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TDSTecnologia.Site.Infrastructure.Data;
+using TDSTecnologia.Site.Infrastructure.Repository;
 
 namespace TDSTecnologia.Site.Web
 {
@@ -24,6 +25,7 @@ namespace TDSTecnologia.Site.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<CursoRepository, CursoRepository>();
             services.AddMvc();
             services.AddEntityFrameworkNpgsql()
          .AddDbContext<AppContexto>(options => options.UseNpgsql(Configuration.GetConnectionString("AppConnection")));
