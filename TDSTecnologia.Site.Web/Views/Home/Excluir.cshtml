@@ -38,6 +38,24 @@
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.DataInicio)
             </dd>
+            <dt class="col-sm-2">
+                Modalidade
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Modalidade)
+            </dd>
+            <dt class="col-sm-2">
+                Vagas
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Vagas)
+            </dd>
+            <dt class="col-sm-2">
+                Nível
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nível)
+            </dd>
         </dl>
 
         <form asp-action="Excluir">
