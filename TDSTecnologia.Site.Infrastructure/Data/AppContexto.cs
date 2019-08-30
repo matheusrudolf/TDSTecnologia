@@ -26,16 +26,12 @@ namespace TDSTecnologia.Site.Infrastructure.Data
             modelBuilder
             .Entity<Curso>()
             .Property(c => c.Modalidade)
-            .HasConversion(
-            v => v.ToString(),
-            v => (DomModalidade)Enum.Parse(typeof(DomModalidade), v));
+            .HasConversion(DominioConverter.ConverterDomModalidade());
 
             modelBuilder
             .Entity<Curso>()
             .Property(c => c.Nível)
-            .HasConversion(
-            v => v.ToString(),
-            v => (DomNivel)Enum.Parse(typeof(DomNivel), v));
+            .HasConversion(DominioConverter.ConverterDomNivel());
         }
     }
 }
