@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TDSTecnologia.Site.Core.Entities;
@@ -14,11 +15,12 @@ namespace TDSTecnologia.Site.Infrastructure.Repository
         {
         }
 
-        public async Task<List<Curso>> ListarTodos()
+        public List<Curso> ListarTodos()
         {
-            List<Curso> cursos = await _context.CursoDao.ToListAsync();
 
-            return cursos;
+            return _context.CursoDao.ToList();
         }
+
+
     }
 }
