@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using TDSTecnologia.Site.Core.Dominio;
 using TDSTecnologia.Site.Core.Entities;
+using TDSTecnologia.Site.Infrastructure.Map;
 
 namespace TDSTecnologia.Site.Infrastructure.Data
 {
@@ -17,21 +18,7 @@ namespace TDSTecnologia.Site.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder
-            .Entity<Curso>()
-            .Property(c => c.Turno)
-            .HasConversion(DominioConverter.ConverterDomTurno());
-    
-
-            modelBuilder
-            .Entity<Curso>()
-            .Property(c => c.Modalidade)
-            .HasConversion(DominioConverter.ConverterDomModalidade());
-
-            modelBuilder
-            .Entity<Curso>()
-            .Property(c => c.Nível)
-            .HasConversion(DominioConverter.ConverterDomNivel());
+            modelBuilder.ApplyConfiguration(new CursoMapConfiguration());
         }
     }
 }
