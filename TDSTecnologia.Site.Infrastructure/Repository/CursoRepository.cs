@@ -21,6 +21,10 @@ namespace TDSTecnologia.Site.Infrastructure.Repository
             return _context.CursoDao.ToList();
         }
 
+        public Curso PesquisarPorId(int? id)
+        {
+            return _context.CursoDao.Find(id);
+        }
 
     }
 }
