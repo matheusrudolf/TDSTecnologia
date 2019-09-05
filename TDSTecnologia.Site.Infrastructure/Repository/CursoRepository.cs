@@ -26,5 +26,10 @@ namespace TDSTecnologia.Site.Infrastructure.Repository
             return _context.CursoDao.Find(id);
         }
 
+        public void Salvar(Curso curso)
+        {
+            _context.Add(curso);
+        }
+
     }
 }
