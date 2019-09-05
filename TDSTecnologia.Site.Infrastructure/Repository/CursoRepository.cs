@@ -31,5 +31,11 @@ namespace TDSTecnologia.Site.Infrastructure.Repository
             _context.Add(curso);
         }
 
+        public void Atualizar(Curso curso)
+        {
+            _context.Update(curso);
+            _context.Entry<Curso>(curso).Property(c => c.Banner).IsModified = false;
+        }
+
     }
 }
