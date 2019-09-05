@@ -37,5 +37,10 @@ namespace TDSTecnologia.Site.Infrastructure.Repository
             _context.Entry<Curso>(curso).Property(c => c.Banner).IsModified = false;
         }
 
+        public void Excluir(Curso curso)
+        {
+            _context.CursoDao.Remove(curso);
+        }
+
     }
 }
