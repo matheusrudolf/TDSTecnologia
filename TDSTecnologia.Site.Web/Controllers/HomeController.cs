@@ -48,14 +48,14 @@ namespace TDSTecnologia.Site.Web.Controllers
             return View(curso);
         }
 
-        public async Task<IActionResult> Detalhes(int? id)
+        public IActionResult Detalhes(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var curso = await _context.CursoDao.FirstOrDefaultAsync(m => m.Id == id);
+            var curso = _cursoService.PesquisarPorId(id);
             if (curso == null)
             {
                 return NotFound();
