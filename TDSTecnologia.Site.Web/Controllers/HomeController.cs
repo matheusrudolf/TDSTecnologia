@@ -29,11 +29,11 @@ namespace TDSTecnologia.Site.Web.Controllers
             return View(cursos);
         }
 
-        /*[HttpGet]
+        [HttpGet]
         public IActionResult Novo()
         {
             return View();
-        }*/
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
