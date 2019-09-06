@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using TDSTecnologia.Site.Core.Entities;
+using TDSTecnologia.Site.Core.Utilitarios;
 using TDSTecnologia.Site.Infrastructure.Data;
 using TDSTecnologia.Site.Infrastructure.Repository;
 using TDSTecnologia.Site.Infrastructure.Services;
@@ -36,23 +37,15 @@ namespace TDSTecnologia.Site.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Novo([Bind("Id,Nome,Descricao,QuantidadeAula,DataInicio,Turno")] Curso curso, IFormFile arquivo)
+        public IActionResult Novo([Bind("Id,Nome,Descricao,QuantidadeAula,DataInicio,Turno,Modalidade,Nivel,Vagas")] Curso curso, IFormFile arquivo)
         {
-            
             if (ModelState.IsValid)
             {
-                if (arquivo != null && arquivo.ContentType.ToLower().StartsWith("image/"))
-                {
-                    MemoryStream ms = new MemoryStream();
-                    await arquivo.OpenReadStream().CopyToAsync(ms);
-                    curso.Banner = ms.ToArray();
-                }
-                _context.Add(curso);
-                await _context.SaveChangesAsync();
+                curso.Banner = UtilImagem.ConverterParaByte(arquivo);
+                _cursoService.Salvar(curso);
                 return RedirectToAction(nameof(Index));
             }
             return View(curso);
-
         }
 
         public async Task<IActionResult> Detalhes(int? id)
