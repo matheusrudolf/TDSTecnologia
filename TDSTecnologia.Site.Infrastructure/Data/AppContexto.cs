@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,7 @@ using TDSTecnologia.Site.Infrastructure.Map;
 
 namespace TDSTecnologia.Site.Infrastructure.Data
 {
-    public class AppContexto : DbContext
+    public class AppContexto : IdentityDbContext<Usuario, Permissao, string>
     {
         public AppContexto(DbContextOptions<AppContexto> opcoes) : base(opcoes)
         {
