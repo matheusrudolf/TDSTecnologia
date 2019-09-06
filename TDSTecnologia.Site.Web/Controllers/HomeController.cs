@@ -17,10 +17,9 @@ namespace TDSTecnologia.Site.Web.Controllers
     {
         private readonly AppContexto _context;
 
-        public HomeController(AppContexto context, CursoRepository cursoRepository)
+        public HomeController(CursoService cursoService)
         {
-            _context = context;
-            _cursoRepository = cursoRepository;
+            _cursoService = cursoService;
         }
 
         public async Task<IActionResult> Index()
