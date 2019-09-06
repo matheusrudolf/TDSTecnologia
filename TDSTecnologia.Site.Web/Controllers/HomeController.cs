@@ -80,6 +80,23 @@ namespace TDSTecnologia.Site.Web.Controllers
             return View(curso);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Alterar(int id, [Bind("Id,Nome,Descricao,QuatidadeAula,DataInicio,Turno,Modalidade,Nivel,Vagas")] Curso curso)
+        {
+            if (id != curso.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                _cursoService.Atualizar(curso);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(curso);
+        }
+
         private readonly CursoRepository _cursoRepository;
 
         private readonly CursoService _cursoService;
