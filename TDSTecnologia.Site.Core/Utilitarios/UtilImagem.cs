@@ -9,12 +9,12 @@ namespace TDSTecnologia.Site.Core.Utilitarios
 {
     public class UtilImagem
     {
-        public static async Task<byte[]> ConverterParaByte(IFormFile arquivo)
+        public static byte[] ConverterParaByte(IFormFile arquivo)
         {
             if (arquivo != null && arquivo.ContentType.ToLower().StartsWith("image/"))
             {
                 MemoryStream ms = new MemoryStream();
-                await arquivo.OpenReadStream().CopyToAsync(ms);
+                arquivo.OpenReadStream().CopyTo(ms);
                 return ms.ToArray();
             }
             return null;
