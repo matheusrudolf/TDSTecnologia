@@ -13,6 +13,5 @@ namespace TDSTecnologia.Site.Core.Entities
         public string CPF { get; set; }
         public string Telefone { get; set; }
 
-        public DbSet Usuarios { get; set; }
     }
 }

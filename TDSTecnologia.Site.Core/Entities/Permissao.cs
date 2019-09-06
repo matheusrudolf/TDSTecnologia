@@ -10,6 +10,5 @@ namespace TDSTecnologia.Site.Core.Entities
     {
         public string Descricao { get; set; }
 
-        public DbSet Permissoes { get; set; }
     }
 }
