@@ -22,10 +22,9 @@ namespace TDSTecnologia.Site.Web.Controllers
             _cursoService = cursoService;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            List<Curso> cursos = await _cursoRepository.ListarTodos();
-
+            List<Curso> cursos = _cursoService.ListarTodos();
             return View(cursos);
         }
 
