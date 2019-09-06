@@ -37,5 +37,12 @@ namespace TDSTecnologia.Site.Infrastructure.Services
             _cursoRepository.Atualizar(curso);
             SaveChangesApp();
         }
+
+        public void Excluir(int? id)
+        {
+            var curso = PesquisarPorId(id);
+            _cursoRepository.Excluir(curso);
+            SaveChangesApp();
+        }
     }
 }
