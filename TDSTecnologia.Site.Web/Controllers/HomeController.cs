@@ -112,6 +112,14 @@ namespace TDSTecnologia.Site.Web.Controllers
             return View(curso);
         }
 
+        [HttpPost, ActionName("Excluir")]
+        [ValidateAntiForgeryToken]
+        public IActionResult ConfirmarExclusao(int id)
+        {
+            _cursoService.Excluir(id);
+            return RedirectToAction(nameof(Index));
+        }
+
         private readonly CursoRepository _cursoRepository;
 
         private readonly CursoService _cursoService;
