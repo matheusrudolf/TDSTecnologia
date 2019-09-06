@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TDSTecnologia.Site.Infrastructure.Data;
 using TDSTecnologia.Site.Infrastructure.Repository;
+using TDSTecnologia.Site.Infrastructure.Services;
 
 namespace TDSTecnologia.Site.Web
 {
@@ -29,6 +30,7 @@ namespace TDSTecnologia.Site.Web
             services.AddMvc();
             services.AddEntityFrameworkNpgsql()
          .AddDbContext<AppContexto>(options => options.UseNpgsql(Configuration.GetConnectionString("AppConnection")));
+            services.AddScoped<CursoService, CursoService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
