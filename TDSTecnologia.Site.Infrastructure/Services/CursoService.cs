@@ -31,5 +31,11 @@ namespace TDSTecnologia.Site.Infrastructure.Services
         {
             return _cursoRepository.PesquisarPorId(id);
         }
+
+        public void Atualizar(Curso curso)
+        {
+            _cursoRepository.Atualizar(curso);
+            SaveChangesApp();
+        }
     }
 }
