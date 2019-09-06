@@ -26,5 +26,10 @@ namespace TDSTecnologia.Site.Infrastructure.Services
             _context.Add(curso);
             SaveChangesApp();
         }
+
+        public Curso PesquisarPorId(int? id)
+        {
+            return _cursoRepository.PesquisarPorId(id);
+        }
     }
 }
