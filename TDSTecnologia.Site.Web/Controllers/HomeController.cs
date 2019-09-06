@@ -64,6 +64,22 @@ namespace TDSTecnologia.Site.Web.Controllers
             return View(curso);
         }
 
+        public IActionResult Alterar(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var curso = _cursoService.PesquisarPorId(id);
+
+            if (curso == null)
+            {
+                return NotFound();
+            }
+            return View(curso);
+        }
+
         private readonly CursoRepository _cursoRepository;
 
         private readonly CursoService _cursoService;
