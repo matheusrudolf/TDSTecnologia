@@ -32,5 +32,10 @@ namespace TDSTecnologia.Site.Infrastructure.Repository
         {
             return await _roleManager.RoleExistsAsync(permissao);
         }
+
+        public Permissao PesquisaPorId(string id)
+        {
+            return _context.Permissoes.Find(id);
+        }
     }
 }
