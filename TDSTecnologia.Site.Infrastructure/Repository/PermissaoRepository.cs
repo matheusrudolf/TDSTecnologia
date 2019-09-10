@@ -21,5 +21,10 @@ namespace TDSTecnologia.Site.Infrastructure.Repository
         {
             return _context.Permissoes.ToList();
         }
+
+        public Task<IdentityResult> Salvar(Permissao permissao)
+        {
+            return _roleManager.CreateAsync(permissao);
+        }
     }
 }
