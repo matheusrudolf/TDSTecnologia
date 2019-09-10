@@ -16,5 +16,10 @@ namespace TDSTecnologia.Site.Infrastructure.Services
         {
             _permissaoRepository = new PermissaoRepository(contexto, roleManager);
         }
+
+        public List<Permissao> ListarTodos()
+        {
+            return _permissaoRepository.ListarTodos();
+        }
     }
 }
