@@ -46,5 +46,12 @@ namespace TDSTecnologia.Site.Web.Controllers
             }
             return View(permissao);
         }
+
+        [HttpDelete]
+        public IActionResult Excluir(string id)
+        {
+            _permissaoService.Excluir(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
