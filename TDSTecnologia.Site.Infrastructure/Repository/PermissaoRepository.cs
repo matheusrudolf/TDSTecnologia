@@ -37,5 +37,10 @@ namespace TDSTecnologia.Site.Infrastructure.Repository
         {
             return _context.Permissoes.Find(id);
         }
+
+        public void Excluir(Permissao permissao)
+        {
+            _roleManager.DeleteAsync(permissao);
+        }
     }
 }
