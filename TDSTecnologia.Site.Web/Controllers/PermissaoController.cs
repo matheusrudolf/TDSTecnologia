@@ -44,6 +44,7 @@ namespace TDSTecnologia.Site.Web.Controllers
                     return RedirectToAction("Index", "Permissao");
                 }
             }
+            return View(permissao);
         }
     }
 }
