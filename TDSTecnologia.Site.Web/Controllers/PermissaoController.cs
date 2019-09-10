@@ -28,5 +28,22 @@ namespace TDSTecnologia.Site.Web.Controllers
         {
             return View("Novo");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Novo([Bind("Descricao,Name")] Permissao permissao)
+        {
+            if (ModelState.IsValid)
+            {
+                bool existePermissao = await _permissaoService.ExistePermissao(permissao.Name);
+
+                if (!existePermissao)
+                {
+                    permissao.NormalizedName = permissao.Name.ToUpper();
+                    await _permissaoService.Salvar(permissao);
+                    return RedirectToAction("Index", "Permissao");
+                }
+            }
+        }
     }
 }
