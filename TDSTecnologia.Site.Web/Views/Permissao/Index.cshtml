@@ -42,3 +42,27 @@
     </div>
 </div>
 <partial name="_ModalExclusao" />
+
+@section Scripts{
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        })
+        function ConfirmarExclusao(id, nome, controller) {
+            $(".Nome").html(nome);
+            $(".modal").modal("show");
+            $(".btnExcluir").on('click', function () {
+                var url = "/" + controller + "/Excluir/";
+                $.ajax({
+                    method: "Delete",
+                    url: url,
+                    data: { id: id },
+                    success: function () {
+                        alert("Registro excluído");
+                        location.reload();
+                    }
+                })
+            })
+        }
+    </script>
+}
