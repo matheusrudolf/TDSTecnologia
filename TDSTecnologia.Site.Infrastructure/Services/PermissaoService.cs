@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using TDSTecnologia.Site.Core.Entities;
 using TDSTecnologia.Site.Infrastructure.Data;
 using TDSTecnologia.Site.Infrastructure.Repository;
@@ -20,6 +21,18 @@ namespace TDSTecnologia.Site.Infrastructure.Services
         public List<Permissao> ListarTodos()
         {
             return _permissaoRepository.ListarTodos();
+        }
+
+        public Task<IdentityResult> Salvar(Permissao permissao)
+        {
+            Task<IdentityResult> result = _permissaoRepository.Salvar(permissao);
+            SaveChangesApp();
+            return result;
+        }
+
+        public async Task<bool> ExistePermissao(string permissao)
+        {
+            return await _permissaoRepository.ExistePermissao(permissao);
         }
     }
 }
