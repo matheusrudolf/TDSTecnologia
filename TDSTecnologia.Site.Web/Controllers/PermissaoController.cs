@@ -22,5 +22,11 @@ namespace TDSTecnologia.Site.Web.Controllers
             List<Permissao> permissoes = _permissaoService.ListarTodos();
             return View("Index", permissoes);
         }
+
+        [HttpGet]
+        public IActionResult Novo()
+        {
+            return View("Novo");
+        }
     }
 }
