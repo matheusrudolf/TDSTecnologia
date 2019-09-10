@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using TDSTecnologia.Site.Core.Entities;
 using TDSTecnologia.Site.Infrastructure.Data;
 
@@ -25,6 +26,11 @@ namespace TDSTecnologia.Site.Infrastructure.Repository
         public Task<IdentityResult> Salvar(Permissao permissao)
         {
             return _roleManager.CreateAsync(permissao);
+        }
+
+        public async Task<bool> ExistePermissao(string permissao)
+        {
+            return await _roleManager.RoleExistsAsync(permissao);
         }
     }
 }
