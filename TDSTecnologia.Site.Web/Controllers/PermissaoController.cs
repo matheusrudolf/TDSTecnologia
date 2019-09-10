@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TDSTecnologia.Site.Core.Entities;
 using TDSTecnologia.Site.Infrastructure.Services;
 
 namespace TDSTecnologia.Site.Web.Controllers
@@ -18,7 +19,8 @@ namespace TDSTecnologia.Site.Web.Controllers
 
         public IActionResult Index()
         {
-            return View("Index");
+            List<Permissao> permissoes = _permissaoService.ListarTodos();
+            return View("Index", permissoes);
         }
     }
 }
