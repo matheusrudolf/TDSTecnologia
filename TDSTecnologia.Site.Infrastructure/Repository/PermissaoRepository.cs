@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using TDSTecnologia.Site.Core.Entities;
 using TDSTecnologia.Site.Infrastructure.Data;
