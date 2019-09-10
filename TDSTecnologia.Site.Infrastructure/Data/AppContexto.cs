@@ -24,6 +24,8 @@ namespace TDSTecnologia.Site.Infrastructure.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.HasDefaultSchema("tds");
             modelBuilder.ApplyConfiguration(new CursoMapConfiguration());
+            modelBuilder.ApplyConfiguration(new PermissaoMapConfiguration());
+            modelBuilder.ApplyConfiguration(new UsuarioMapConfiguration());
         }
     }
 }
