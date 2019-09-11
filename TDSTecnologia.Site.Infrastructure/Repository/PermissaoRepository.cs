@@ -42,5 +42,10 @@ namespace TDSTecnologia.Site.Infrastructure.Repository
         {
             _roleManager.DeleteAsync(permissao);
         }
+
+        public void Atualizar(Permissao permissao)
+        {
+            _context.Update(permissao);
+        }
     }
 }
