@@ -68,5 +68,22 @@ namespace TDSTecnologia.Site.Web.Controllers
             }
             return View(permissao);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Alterar(string id, [Bind("Descricao,Id,Name,NormalizedName,ConcurrencyStamp")] Permissao permissao)
+        {
+            if (id != permissao.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                _permissaoService.Atualizar(permissao);
+                return RedirectToAction("Index", "Permissao");
+            }
+            return View(permissao);
+        }
     }
 }
