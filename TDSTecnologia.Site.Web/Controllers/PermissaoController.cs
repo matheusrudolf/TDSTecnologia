@@ -53,5 +53,20 @@ namespace TDSTecnologia.Site.Web.Controllers
             _permissaoService.Excluir(id);
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Alterar(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var permissao = _permissaoService.PesquisarPorId(id);
+            if (permissao == null)
+            {
+                return NotFound();
+            }
+            return View(permissao);
+        }
     }
 }
