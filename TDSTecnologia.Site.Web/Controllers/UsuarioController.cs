@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TDSTecnologia.Site.Core.Entities;
 using TDSTecnologia.Site.Infrastructure.Services;
+using TDSTecnologia.Site.Web.ViewModels;
 
 namespace TDSTecnologia.Site.Web.Controllers
 {
@@ -19,6 +22,34 @@ namespace TDSTecnologia.Site.Web.Controllers
         public IActionResult Cadastro()
         {
             return View("Cadastro");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Cadastro(CadastroUsuarioViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Usuario usuario = model.ConverterParaUsuario();
+
+                IdentityResult result = await _usuarioService.Salvar(usuario, model.Senha);
+
+                if (result.Succeeded)
+                {
+                    await _usuarioService.AdicionarPermissao(usuario, "Administrador");
+                    await _usuarioService.Login(usuario, false);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    foreach (var erro in result.Errors)
+                        ModelState.AddModelError("", erro.Description.ToString());
+                    return View("Cadastro");
+                }
+            }
+            else
+            {
+                return View("Cadastro");
+            }
         }
     }
 }
