@@ -14,5 +14,11 @@ namespace TDSTecnologia.Site.Web.Controllers
         {
             _usuarioService = usuarioService;
         }
+
+        [HttpGet]
+        public IActionResult Cadastro()
+        {
+            return View("Cadastro");
+        }
     }
 }
