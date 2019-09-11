@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3FD853DE-4568-456C-913D-211FCB389B0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDSTecnologia.Site.Web", "TDSTecnologia.Site.Web\TDSTecnologia.Site.Web.csproj", "{ACCB584B-B713-4001-BFA9-E1E55278672A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDSTecnologia.Site.Web", "TDSTecnologia.Site.Web\TDSTecnologia.Site.Web.csproj", "{ACCB584B-B713-4001-BFA9-E1E55278672A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDSTecnologia.Site.Core", "TDSTecnologia.Site.Core\TDSTecnologia.Site.Core.csproj", "{53148B0B-8AE6-445D-B1CB-F0806C164CAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDSTecnologia.Site.Core", "TDSTecnologia.Site.Core\TDSTecnologia.Site.Core.csproj", "{53148B0B-8AE6-445D-B1CB-F0806C164CAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDSTecnologia.Site.Infrastructure", "TDSTecnologia.Site.Infrastructure\TDSTecnologia.Site.Infrastructure.csproj", "{FEA0F6C8-7A6E-4881-9B2B-DA15C704540D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDSTecnologia.Site.Infrastructure", "TDSTecnologia.Site.Infrastructure\TDSTecnologia.Site.Infrastructure.csproj", "{FEA0F6C8-7A6E-4881-9B2B-DA15C704540D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
