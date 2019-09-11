@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using TDSTecnologia.Site.Core.Entities;
 using TDSTecnologia.Site.Infrastructure.Data;
 
@@ -16,6 +17,11 @@ namespace TDSTecnologia.Site.Infrastructure.Repository
         {
             _userManager = userManager;
             _signInManager = signInManager;
+        }
+
+        public async Task<IdentityResult> Salvar(Usuario usuario, string senha)
+        {
+            return await _userManager.CreateAsync(usuario, senha);
         }
     }
 }
