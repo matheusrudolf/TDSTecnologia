@@ -22,5 +22,10 @@ namespace TDSTecnologia.Site.Infrastructure.Services
         {
             return await _usuarioRepository.Salvar(usuario, senha);
         }
+
+        public async Task<IdentityResult> AdicionarPermissao(Usuario usuario, string permissao)
+        {
+            return await _usuarioRepository.AdicionarPermissao(usuario, permissao);
+        }
     }
 }
