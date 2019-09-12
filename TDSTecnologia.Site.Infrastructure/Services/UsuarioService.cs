@@ -37,5 +37,10 @@ namespace TDSTecnologia.Site.Infrastructure.Services
         {
             await _usuarioRepository.Logout();
         }
+
+        public async Task<Usuario> PesquisarUsuarioPeloEmail(string email)
+        {
+            return await _usuarioRepository.PesquisarUsuarioPeloEmail(email);
+        }
     }
 }
