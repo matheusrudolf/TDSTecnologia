@@ -27,5 +27,15 @@ namespace TDSTecnologia.Site.Infrastructure.Services
         {
             return await _usuarioRepository.AdicionarPermissao(usuario, permissao);
         }
+
+        public async Task Login(Usuario usuario, bool lembrar)
+        {
+            await _usuarioRepository.Login(usuario, lembrar);
+        }
+
+        public async Task Logout()
+        {
+            await _usuarioRepository.Logout();
+        }
     }
 }
