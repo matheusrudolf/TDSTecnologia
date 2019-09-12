@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,18 @@ namespace TDSTecnologia.Site.Web.Controllers
             {
                 return View("Cadastro");
             }
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<ActionResult> Login()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                await _usuarioService.Logout();
+            }
+
+            return View();
         }
     }
 }
