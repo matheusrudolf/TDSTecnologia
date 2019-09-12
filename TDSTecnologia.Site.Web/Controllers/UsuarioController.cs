@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TDSTecnologia.Site.Core.Entities;
+using TDSTecnologia.Site.Infrastructure.Security;
 using TDSTecnologia.Site.Infrastructure.Services;
 using TDSTecnologia.Site.Web.ViewModels;
 
@@ -55,14 +56,32 @@ namespace TDSTecnologia.Site.Web.Controllers
 
         [AllowAnonymous]
         [HttpGet]
-        public async Task<ActionResult> Login()
+        public async Task<ActionResult> Login(LoginViewModel model)
         {
-            if (User.Identity.IsAuthenticated)
+            if (ModelState.IsValid)
             {
-                await _usuarioService.Logout();
+                var usuario = await _usuarioService.PesquisarUsuarioPeloEmail(model.Email);
+
+                if (usuario != null)
+                {
+                    if (SecurityUtil.CompararSenhas(usuario, model.Senha))
+                    {
+                        await _usuarioService.Login(usuario, false);
+
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Senha inválida");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Email inválido");
+                }
             }
 
-            return View();
+            return View(model);
         }
     }
 }
