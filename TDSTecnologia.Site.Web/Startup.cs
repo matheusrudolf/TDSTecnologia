@@ -35,6 +35,7 @@ namespace TDSTecnologia.Site.Web
          .AddDbContext<AppContexto>(options => options.UseNpgsql(Configuration.GetConnectionString("AppConnection")));
             services.AddScoped<CursoService, CursoService>();
             services.AddScoped<PermissaoService, PermissaoService>();
+            services.AddScoped<UsuarioService, UsuarioService>();
             services.AddIdentity<Usuario, Permissao>()
                                         .AddDefaultUI(UIFramework.Bootstrap4)
                                         .AddEntityFrameworkStores<AppContexto>();
