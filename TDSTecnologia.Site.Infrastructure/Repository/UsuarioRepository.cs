@@ -28,5 +28,10 @@ namespace TDSTecnologia.Site.Infrastructure.Repository
         {
             return await _userManager.AddToRoleAsync(usuario, permissao);
         }
+
+        public async Task Login(Usuario usuario, bool lembrar)
+        {
+            await _signInManager.SignInAsync(usuario, lembrar);
+        }
     }
 }
