@@ -11,6 +11,7 @@ using TDSTecnologia.Site.Core.Utilitarios;
 using TDSTecnologia.Site.Infrastructure.Data;
 using TDSTecnologia.Site.Infrastructure.Repository;
 using TDSTecnologia.Site.Infrastructure.Services;
+using TDSTecnologia.Site.Web.ViewModels;
 
 namespace TDSTecnologia.Site.Web.Controllers
 {
