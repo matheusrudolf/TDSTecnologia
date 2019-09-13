@@ -29,11 +29,19 @@
             </div>
         </div>
     </div>
-    <div class="container my-3">
-        <div class="row">
-            <div class="col-12">
-                @Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina }))
-            </div>
+    
+}
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-12">
+            @Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina }),
+            new PagedListRenderOptions
+                 {
+                MaximumPageNumbersToDisplay = 3,
+                LiElementClasses = new string[] { "page-item" },
+                PageClasses = new string[] { "page-link" }
+            })
         </div>
     </div>
-}
+</div>
