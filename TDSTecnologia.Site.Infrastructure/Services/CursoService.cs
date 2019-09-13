@@ -4,6 +4,7 @@ using System.Text;
 using TDSTecnologia.Site.Core.Entities;
 using TDSTecnologia.Site.Infrastructure.Data;
 using TDSTecnologia.Site.Infrastructure.Repository;
+using X.PagedList;
 
 namespace TDSTecnologia.Site.Infrastructure.Services
 {
@@ -50,6 +51,11 @@ namespace TDSTecnologia.Site.Infrastructure.Services
             List<Curso> cursos = _cursoRepository.PesquisarPorNomeDescricao(texto);
 
             return cursos;
+        }
+
+        public IPagedList<Curso> ListarComPaginacao(int? pagina)
+        {
+            return _cursoRepository.ListarComPaginacao(pagina);
         }
     }
 }
