@@ -44,5 +44,12 @@ namespace TDSTecnologia.Site.Infrastructure.Services
             _cursoRepository.Excluir(curso);
             SaveChangesApp();
         }
+
+        public List<Curso> PesquisarPorNomeDescricao(string texto)
+        {
+            List<Curso> cursos = _cursoRepository.PesquisarPorNomeDescricao(texto);
+
+            return cursos;
+        }
     }
 }
