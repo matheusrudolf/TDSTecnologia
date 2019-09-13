@@ -33,7 +33,7 @@ namespace TDSTecnologia.Site.Web.Controllers
                 CursosComPaginacao = cursos
             };
 
-            return View(cursos);
+            return View(viewModel);
         }
 
         [HttpGet]
