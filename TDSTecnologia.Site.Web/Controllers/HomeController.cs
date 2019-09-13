@@ -12,6 +12,7 @@ using TDSTecnologia.Site.Infrastructure.Data;
 using TDSTecnologia.Site.Infrastructure.Repository;
 using TDSTecnologia.Site.Infrastructure.Services;
 using TDSTecnologia.Site.Web.ViewModels;
+using X.PagedList;
 
 namespace TDSTecnologia.Site.Web.Controllers
 {
@@ -26,7 +27,12 @@ namespace TDSTecnologia.Site.Web.Controllers
 
         public IActionResult Index(int? pagina)
         {
-            List<Curso> cursos = _cursoService.ListarTodos();
+            IPagedList<Curso> cursos = _cursoService.ListarComPaginacao(pagina);
+            var viewModel = new CursoViewModel
+            {
+                CursosComPaginacao = cursos
+            };
+
             return View(cursos);
         }
 
