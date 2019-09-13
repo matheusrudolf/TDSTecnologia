@@ -124,5 +124,21 @@ namespace TDSTecnologia.Site.Web.Controllers
 
         private readonly CursoService _cursoService;
 
+        public IActionResult PesquisarCurso(CursoViewModel pesquisa)
+        {
+            if (pesquisa.Texto != null && !String.IsNullOrEmpty(pesquisa.Texto))
+            {
+                List<Curso> cursos = _cursoService.PesquisarPorNomeDescricao(pesquisa.Texto);
+                var ViewModel = new CursoViewModel
+                {
+                    Cursos = cursos
+                };
+                return View("Index", ViewModel);
+            }
+            else
+            {
+                return RedirectToAction(nameof(Index));
+            }
+        }
     }
 }
