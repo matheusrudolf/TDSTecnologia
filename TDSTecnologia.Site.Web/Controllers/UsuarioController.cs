@@ -56,6 +56,18 @@ namespace TDSTecnologia.Site.Web.Controllers
 
         [AllowAnonymous]
         [HttpGet]
+        public async Task<IActionResult> Login()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                await _usuarioService.Logout();
+            }
+
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
         public async Task<ActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
