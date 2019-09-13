@@ -24,7 +24,7 @@ namespace TDSTecnologia.Site.Web.Controllers
             _cursoService = cursoService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? pagina)
         {
             List<Curso> cursos = _cursoService.ListarTodos();
             return View(cursos);
